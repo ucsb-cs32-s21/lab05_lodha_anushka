@@ -2,6 +2,9 @@
 #include "parse.h"
 #include <algorithm>
 #include <cmath>
+#include "raceDemogData.h"
+#include "regionData.h"
+#include <vector>
 
 /* helper to strip out quotes from a string */
 string stripQuotes(std::string temp) {
@@ -58,11 +61,11 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine) {
     string name = getField(ss);
     string state = getField(ss);
     //turn into mathematical percent
-    double popOver65 = stod(getField(ss));
-    double popUnder18 = stod(getField(ss));
-    double popUnder5 = stod(getField(ss));
-    double bachelorDegreeUp = stod(getField(ss));
-    double highSchoolUp = stod(getField(ss));
+    double popOver65 = stod(getField(ss))/100.0;
+    double popUnder18 = stod(getField(ss))/100.0;
+    double popUnder5 = stod(getField(ss))/100.0;
+    double bachelorDegreeUp = stod(getField(ss))/100.0;
+    double highSchoolUp = stod(getField(ss))/100.0;
 
     //now skip over some data
     for (int i=0; i < 4; i++)
@@ -92,10 +95,32 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine) {
         getField(ss);
 
     int totalPop2014 = stoi(getField(ss));
+
+    // convert percents to counts
+    int FN = round(FirstNation*totalPop2014);
+    int A = round(Asian*totalPop2014);
+    int B = round(Black*totalPop2014);
+    int L = round(Latinx*totalPop2014);
+    int HI = round(HIPacificIsle*totalPop2014);
+    int MR = round(MultiRace*totalPop2014);
+    int W = round(White*totalPop2014);
+    int WNH = round(WhiteNH*totalPop2014);
+    int other(0);
+    int comm(0);
+
+    int over65 = popOver65 * totalPop2014;
+    int under18 = popUnder18 * totalPop2014;
+    int under5 = popUnder5 * totalPop2014;
+    int BA = bachelorDegreeUp * totalPop2014;
+    int HS = highSchoolUp * totalPop2014;
+    int pov = belowPoverty * totalPop2014;
+ 
+    raceDemogData race_data(FN, A, B, L, HI, MR, W, WNH, totalPop2014);
  
     //update as needed this is lab3 version
+    // ARE THESE COUNTS OR PERCENTS
     return make_shared<demogData>(name, state, popOver65, popUnder18,
-            popUnder5, totalPop2014);
+            popUnder5, BA, HS, pov, race_data, totalPop2014);
 }
 
 //read one line of police data
@@ -120,11 +145,55 @@ shared_ptr<psData> readCSVLinePolice(std::string theLine) {
     string city = getFieldNQ(ss);
     string state = getFieldNQ(ss);
     //finish reading other data fields and initialize police data
+    string ment_ill = getFieldNQ(ss);
+    getFieldNQ(ss);
+    string flee = getFieldNQ(ss);
 
-    return make_shared<psData>(state);
+    return make_shared<psData>(state, name, age, gender, race, city, ment_ill, flee);
+    //return make_shared<psData>(state);
+}
+
+std::vector<shared_ptr<regionData>> read_csv(std::string filename, typeFlag fileType) {
+        //the actual data
+    std::vector<shared_ptr<regionData>> theData;
+
+    // Create an input filestream
+    std::ifstream myFile(filename);
+
+    // Make sure the file is open
+    if(!myFile.is_open()) {
+        throw std::runtime_error("Could not open file");
+    }
+
+    if(myFile.good()) {
+        consumeColumnNames(myFile);
+
+        // Helper vars
+        std::string line;
+
+        // Now read data, line by line and create dataobject
+        while(std::getline(myFile, line)) {
+            if (fileType == DEMOG) {
+                theData.push_back(readCSVLineDemog(line));
+            } 
+            else if (fileType == POLICE) {
+                theData.push_back(readCSVLinePolice(line));
+            }
+            else {
+                cout << "ERROR - unknown file type" << endl;
+                exit(0);
+            }
+        }
+
+        // Close file
+        myFile.close();
+    }
+
+    return theData;
 }
 
 
+/*
 //read from a CSV file (for a given data type) return a vector of the data
 // DO NOT modify 
 std::vector<shared_ptr<demogData>> read_csv(std::string filename, typeFlag fileType) {
@@ -200,4 +269,4 @@ std::vector<shared_ptr<psData>> read_csvPolice(std::string filename, typeFlag fi
     return theData;
 }
 
-
+*/
