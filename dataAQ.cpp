@@ -72,6 +72,7 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
 
   for(auto element : theData) // loop through all counties in theData
   {
+    std::cout << "HELLO SIR" << std::endl;
     string name = element->getRegionName(); // create a variable to hold the current region (state) name for the element
 
     race = element->getRace();
@@ -97,8 +98,10 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
             double in5, double inUG, double inHS, double inPov, raceDemogData r, int totPop14, int numR)
         */
       // the key is the state name and the "value" is the entire set of population data (demogState object)
-      allComboDemogData[name] = make_shared<demogCombo>(element->getName(), element->getRegionName(), element->getpopOver65(), element->getpopUnder18(),
-      element->getpopUnder5(), element->getHSup(), element->getBAup(), element->getpopPoverty(), race, element->getPop(), allComboDemogData[name]->getNumOfReg());
+      auto State = make_shared<demogCombo>(element->getName(), name, element->getpopOver65(), element->getpopUnder18(),
+      element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
+
+      allComboDemogData[name] = State;
     }
     race = raceDemogData(); // reset race fields
   }
