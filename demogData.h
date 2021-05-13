@@ -28,22 +28,22 @@ class demogData : public regionData {
 
     string getName() const { return name; }
     //string getState() const { return state; }
-    double getpopOver65() const { return popOver65; }
-    double getpopUnder18() const { return popUnder18; }
-    double getpopUnder5() const { return popUnder5; }
-    double getBAup() const { return popUndergrad; }
-    double getHSup() const { return popHighSchool; }
-    double getpopPoverty() const { return popPoverty; }
+    int getpopOver65() const { return popOver65; }
+    int getpopUnder18() const { return popUnder18; }
+    int getpopUnder5() const { return popUnder5; }
+    int getBAup() const { return popUndergrad; }
+    int getHSup() const { return popHighSchool; }
+    int getpopPoverty() const { return popPoverty; }
     raceDemogData getRace() const { return racePop; }
     //int getPop() const { return totalPopulation2014; }
 
     // convert to percentages
-    double getpopOver65Per() const { return (((popOver65 * 100.0) / population)); }
-    double getpopUnder18Per() const { return (((popUnder18 * 100.0) / population)); }
-    double getpopUnder5Per() const { return (((popUnder5 * 100.0) / population)); }
-    double getBAupPer() const { return (((popUndergrad * 100.0) / population)); }
-    double getHSupPer() const { return (((popHighSchool * 100.0) / population)); }
-    double getpopPovertyPer() const { return (((popPoverty * 100.0) / population)); }
+    double getpopOver65Per() const { return (((double(popOver65) * 100.0) / population)); }
+    double getpopUnder18Per() const { return (((double(popUnder18) * 100.0) / population)); }
+    double getpopUnder5Per() const { return (((double(popUnder5) * 100.0) / population)); }
+    double getBAupPer() const { return (((double(popUndergrad) * 100.0) / population)); }
+    double getHSupPer() const { return (((double(popHighSchool) * 100.0) / population)); }
+    double getpopPovertyPer() const { return (((double(popPoverty) * 100.0) / population)); }
 
    friend std::ostream& operator<<(std::ostream &out, const demogData &DD);
    void toString(ostream& os) const{

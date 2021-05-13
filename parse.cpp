@@ -61,9 +61,9 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine) {
     string name = getField(ss);
     string state = getField(ss);
     //turn into mathematical percent
-    double popOver65 = stod(getField(ss))/100.0;
-    double popUnder18 = stod(getField(ss))/100.0;
-    double popUnder5 = stod(getField(ss))/100.0;
+    double popOver65 = stod(getField(ss));
+    double popUnder18 = stod(getField(ss));
+    double popUnder5 = stod(getField(ss));
     double bachelorDegreeUp = stod(getField(ss))/100.0;
     double highSchoolUp = stod(getField(ss))/100.0;
 
