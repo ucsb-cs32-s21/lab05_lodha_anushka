@@ -13,7 +13,7 @@ class psCombo : public regionData  {
 public:
     //write psCombo constructor
     psCombo(string inS, string inCounty, int NMI, int FC, int C65, int C18, raceDemogData RD, int inMale, int inFemale,
-        int numcase) : regionData(inCounty, inS), state(inS), Rment_ill(NMI), Rflee(FC), R65(C65), R18(C18), raceData(RD), Rmale(inMale),
+        int numcase) : regionData{inCounty, inS}, state(inS), Rment_ill(NMI), Rflee(FC), R65(C65), R18(C18), raceData(RD), Rmale(inMale),
         Rfemale(inFemale), RcaseNum(numcase) {}
     
     // aggregated police shooting data --> how many shootings per state

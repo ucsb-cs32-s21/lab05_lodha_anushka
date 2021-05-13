@@ -20,7 +20,7 @@ class demogCombo : public demogData {
         // FIX THIS CONSTRUCTOR
         demogCombo(string inN, string inS, double in65, double in18, 
             double in5, double inUG, double inHS, double inPov, raceDemogData r, int totPop14, int numR) : 
-            demogData(inN, inS, in65, in18, in5, inUG, inHS, inPov, r, totPop14), numOfReg(numR) {}
+            demogData{inN, inS, in65, in18, in5, inUG, inHS, inPov, r, totPop14}, numOfReg(numR) {}
 
 //fill in
   friend std::ostream& operator<<(std::ostream &out, const demogCombo &SD);
@@ -71,7 +71,6 @@ class demogCombo : public demogData {
 
 private:
     //fill in
-    // aggregated counts private variables
     int numOfReg;
 };
 #endif

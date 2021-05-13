@@ -108,17 +108,16 @@ shared_ptr<demogData> readCSVLineDemog(std::string theLine) {
     int other(0);
     int comm(0);
 
-    int over65 = popOver65 * totalPop2014;
-    int under18 = popUnder18 * totalPop2014;
-    int under5 = popUnder5 * totalPop2014;
-    int BA = bachelorDegreeUp * totalPop2014;
-    int HS = highSchoolUp * totalPop2014;
-    int pov = belowPoverty * totalPop2014;
+    int over65 = round(popOver65 * totalPop2014);
+    int under18 = round(popUnder18 * totalPop2014);
+    int under5 = round(popUnder5 * totalPop2014);
+    int BA = round(bachelorDegreeUp * totalPop2014);
+    int HS = round(highSchoolUp * totalPop2014);
+    int pov = round(belowPoverty * totalPop2014);
  
     raceDemogData race_data(FN, A, B, L, HI, MR, W, WNH, totalPop2014);
  
     //update as needed this is lab3 version
-    // ARE THESE COUNTS OR PERCENTS
     return make_shared<demogData>(name, state, popOver65, popUnder18,
             popUnder5, BA, HS, pov, race_data, totalPop2014);
 }

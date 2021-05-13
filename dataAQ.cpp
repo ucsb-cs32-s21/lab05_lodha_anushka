@@ -72,13 +72,24 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
 
   for(auto element : theData) // loop through all counties in theData
   {
-    std::cout << "HELLO SIR" << std::endl;
     string name = element->getRegionName(); // create a variable to hold the current region (state) name for the element
 
     race = element->getRace();
     
-    if(allComboDemogData.count(name) > 0) // check dataState hashmap to see if the state already exists in hashmap
+    if(allComboDemogData.count(name) < 1) // check dataState hashmap to see if the state already exists in hashmap
     {
+
+      auto State = make_shared<demogCombo>(element->getName(), name, element->getpopOver65(), element->getpopUnder18(),
+      element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
+
+      allComboDemogData[name] = State;
+      
+    }
+    else // if state not already in hashmap, create new object with demogState constructor
+    {
+      // the key is the state name and the "value" is the entire set of population data (demogState object)
+      //cout << " element" << element->getpopOver65() << endl;
+      //cout << " state " << allComboDemogData[name]->getpopOver65() << endl;
       // IDEA: if the key is present in the hashmap, just add the new data from element to the current data 
       // from DataState for each population type
       allComboDemogData[name]->set65(allComboDemogData[name]->getpopOver65() + element->getpopOver65());
@@ -90,18 +101,9 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
       allComboDemogData[name]->setPop(allComboDemogData[name]->getPop() + element->getPop());
       allComboDemogData[name]->setCounties(allComboDemogData[name]->getNumOfReg() + 1);
       allComboDemogData[name]->setRace(race);
-    }
-    else // if state not already in hashmap, create new object with demogState constructor
-    {
-      /*
-      (string inN, string inS, double in65, double in18, 
-            double in5, double inUG, double inHS, double inPov, raceDemogData r, int totPop14, int numR)
-        */
-      // the key is the state name and the "value" is the entire set of population data (demogState object)
-      auto State = make_shared<demogCombo>(element->getName(), name, element->getpopOver65(), element->getpopUnder18(),
-      element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
 
-      allComboDemogData[name] = State;
+      //cout << " elementAFTER" << element->getpopOver65() << endl;
+      //cout << " stateAFTER " << allComboDemogData[name]->getpopOver65() << endl;
     }
     race = raceDemogData(); // reset race fields
   }
@@ -110,6 +112,90 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
 
 void dataAQ::createComboPoliceData(std::vector<shared_ptr<psData> >& theData) {
 //fill in
+ raceDemogData race = raceDemogData(); // initialize race fields to 0
+
+  for(auto element : theData) // loop through all elements in theData
+  {
+    int male(0);
+    int female(0);
+    int mental_illness(0);
+    int flee(0);
+    int age65(0);
+    int age18(0);
+
+    // increment the counts of current individual
+    if (element->getGender() == "M")
+      male++;
+    else if (element->getGender() == "F")
+      female++;
+
+    if(static_cast<int>(element->getAge()) > 65 || static_cast<int>(element->getAge()) == 65)
+      age65++;
+    else if(static_cast<int>(element->getAge()) < 18 || static_cast<int>(element->getAge()) == 18)
+      age18++;
+
+    if(element->getMI() == "True")
+      mental_illness++;
+
+    if(element->getFlee() == "Foot" || element->getFlee() == "Car" || element->getFlee() == "Other")
+      flee++;
+
+    // increment race counts based on current individual
+    if (element->getRace() == "N")
+    {
+      race.addFirstNationCount(1);
+      race.addCommunityCount(1);
+    }
+    else if (element->getRace() == "A")
+    {
+      race.addAsianCount(1);
+      race.addCommunityCount(1);
+    }
+    else if (element->getRace() == "B")
+    {
+      race.addBlackCount(1);
+      race.addCommunityCount(1);
+    }
+    else if (element->getRace() == "H")
+    {
+      race.addLatinxCount(1);
+      race.addCommunityCount(1);
+    }
+    else if (element->getRace() == "W")
+    {
+      race.addWhiteCount(1);
+      race.addWhiteNHCount(1);
+      race.addCommunityCount(1);
+    }
+    else 
+    {
+      race.addOtherCount(1);
+      race.addCommunityCount(1);
+    }
+
+    string name = element->getState(); // variable to hold state name of current individual
+    if(allComboPoliceData.count(name) > 0) // check poDataState hashmap to see if individual's state already exists in hashmap
+    {
+      // IDEA: if the key is present in the hashmap, just add the data of current individual to the current data 
+      // from poDataState for each population type
+      
+      allComboPoliceData[name]->set65(allComboPoliceData[name]->getCasesOver65() + age65);
+      allComboPoliceData[name]->set18(allComboPoliceData[name]->getCasesUnder18() + age18);
+      allComboPoliceData[name]->setMI(allComboPoliceData[name]->getNumMentalI() +  mental_illness);
+      allComboPoliceData[name]->setFC(allComboPoliceData[name]->getFleeingCount() + flee);
+      allComboPoliceData[name]->setMale(allComboPoliceData[name]->getnumMales() + male);
+      allComboPoliceData[name]->setFemale(allComboPoliceData[name]->getnumFemales() + female);
+      allComboPoliceData[name]->setCase(allComboPoliceData[name]->getNumberOfCases() + 1);
+      allComboPoliceData[name]->setRace(race);
+      race = raceDemogData();
+
+    }
+    else // if state not already in hashmap, create new object with pState constructor
+    {
+      // the key is the state name and the "value" is the entire set of population data (pState object)
+      allComboPoliceData[name] = make_shared<psCombo>(name, "County", mental_illness, flee, age65, age18, race, male, female, 1);
+    }
+  }
 }
 
 

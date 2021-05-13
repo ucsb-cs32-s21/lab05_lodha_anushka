@@ -36,7 +36,7 @@ int main() {
     */
    
     theAnswers.createComboDemogData((std::vector<shared_ptr<demogData> >&)theDemogData);
-    //theAnswers.createStatePoliceData(thePoliceData);
+    //theAnswers.createComboPoliceData((std::vector<shared_ptr<psData> >&)thePoliceData);
     cout << theAnswers << endl;
 
 

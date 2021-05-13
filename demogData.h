@@ -16,15 +16,15 @@ using namespace std;
 class demogData : public regionData {
   public:
     demogData(string inN, string inS, double in65, double in18,
-        double in5, int totPop14) : regionData(inN, inS, totPop14),
+        double in5, int totPop14) : regionData{inN, inS, totPop14},
         /*name(inN), state(inS),*/ popOver65(in65), popUnder18(in18),
         popUnder5(in5), popUndergrad(-1), popHighSchool(-1), popPoverty(-1), racePop(), totalPopulation2014(totPop14) {}
 
     demogData(string inN, string inS, double in65, double in18, 
         double in5, double inUG, double inHS, double inPov, raceDemogData r, int totPop14) :
-        regionData(inN, inS, totPop14), /*name(inN), state(inS),*/ popOver65(in65), popUnder18(in18), 
+        regionData{inN, inS, totPop14}, name(inN), state(inS), popOver65(in65), popUnder18(in18), 
         popUnder5(in5), popUndergrad(inUG), popHighSchool(inHS),
-        popPoverty(inPov), racePop(r), totalPopulation2014(totPop14) {}
+        popPoverty(inPov), racePop(r), totalPopulation2014(totPop14) {} // CHANGED FIRST PARAMETER TO inN PROLLY WRONG
 
     string getName() const { return name; }
     //string getState() const { return state; }
