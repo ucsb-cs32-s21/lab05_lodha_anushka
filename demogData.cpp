@@ -7,7 +7,7 @@ std::ostream& operator<<(std::ostream &out, const demogData &DD) {
     out << std::setprecision(2) << std::fixed;
     //fill in
     out << "County Demographics Info: " << DD.getRegionName() << ", " << DD.getState();
-    out << " total population: " << DD.totalPopulation2014 << endl;
+    out << " total population: " << DD.population << endl;
     //consider re-writing with getters....
     out << "\nPopulation info: \n(\% over 65): " << DD.getpopOver65Per();
     out <<  " Count: " << DD.popOver65;

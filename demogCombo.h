@@ -7,6 +7,7 @@
 #include <cmath>
 #include "demogData.h"
 #include "raceDemogData.h"
+#include "regionData.h"
 
 /*
   class to represent combined demographic data 
@@ -18,8 +19,8 @@ class demogCombo : public demogData {
   public:
         //write demogCombo constructor
         // FIX THIS CONSTRUCTOR
-        demogCombo(string inN, string inS, double in65, double in18, 
-            double in5, double inUG, double inHS, double inPov, raceDemogData r, int totPop14, int numR) : 
+        demogCombo(string inN, string inS, int in65, int in18, 
+            int in5, int inUG, int inHS, int inPov, raceDemogData r, int totPop14, int numR) : 
             demogData{inN, inS, in65, in18, in5, inUG, inHS, inPov, r, totPop14}, numOfReg(numR) {}
 
 //fill in
@@ -56,7 +57,7 @@ class demogCombo : public demogData {
   }
   void setPop(int num)
   {
-    totalPopulation2014 = num;
+    population = num;
   }
   void setRace(raceDemogData r) // adds the fields from raceDemogData object passed in to racePop (raceDemogData private variable)
   {
