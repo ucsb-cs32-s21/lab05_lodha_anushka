@@ -72,14 +72,14 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
 
   for(auto element : theData) // loop through all counties in theData
   {
-    string name = element->getRegionName(); // create a variable to hold the current region (state) name for the element
+    string name = element->getState(); // create a variable to hold the current region (state) name for the element
 
     race = element->getRace();
     
     if(allComboDemogData.count(name) < 1) // check dataState hashmap to see if the state already exists in hashmap
     {
 
-      auto State = make_shared<demogCombo>(element->getName(), name, element->getpopOver65(), element->getpopUnder18(),
+      auto State = make_shared<demogCombo>(element->getRegionName(), name, element->getpopOver65(), element->getpopUnder18(),
       element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
 
       allComboDemogData[name] = State;
@@ -186,6 +186,11 @@ void dataAQ::createComboPoliceData(std::vector<shared_ptr<psData> >& theData) {
       allComboPoliceData[name]->setMale(allComboPoliceData[name]->getnumMales() + male);
       allComboPoliceData[name]->setFemale(allComboPoliceData[name]->getnumFemales() + female);
       allComboPoliceData[name]->setCase(allComboPoliceData[name]->getNumberOfCases() + 1);
+      //allComboPoliceData[name]->setCase(1);
+      // if (name == "WY") {
+      //   cout << "THIS IS TOTAL: " << allComboPoliceData[name]->getNumberOfCases() << endl;
+      //   cout << "THIS IS COMMUNITY COUNT: " << race.getCommunityCount() << endl;
+      // }
       allComboPoliceData[name]->setRace(race);
       race = raceDemogData();
 
@@ -198,16 +203,68 @@ void dataAQ::createComboPoliceData(std::vector<shared_ptr<psData> >& theData) {
   }
 }
 
+// compare predicate functions, used in reportTopTenState functions
+bool compareShootings(shared_ptr<psCombo> x, shared_ptr<psCombo> y)
+{
+  return (x->getNumberOfCases() > y->getNumberOfCases());
+}
+
+bool comparePoverty(shared_ptr<demogCombo> x, shared_ptr<demogCombo> y)
+{
+  return (x->getpopPovertyPer() > y->getpopPovertyPer());
+}
 
 //sort and report the top ten states in terms of number of police shootings 
 void dataAQ::reportTopTenStatesPS() {
   //fill in
-}
+  std::vector< shared_ptr<psCombo> > p_shoot;
 
+  // add data from hashmap to a vector (p_shoot)
+  for (auto entry : allComboPoliceData)
+  {
+    p_shoot.push_back(entry.second);
+  }
+
+  sort(p_shoot.begin(), p_shoot.end(), compareShootings);
+  cout.setf(ios::fixed); // set precision to 2 decimal points
+  cout.setf(ios::showpoint);
+  for (int i = 0; i < 3; i++)
+  {
+    cout << p_shoot[i]->getState() << endl;
+    cout << "Total population: " << allComboDemogData[p_shoot[i]->getState()]->getPop() << endl;
+    cout << "Police shooting incidents: " << p_shoot[i]->getNumberOfCases() << endl;
+    cout << "Percent below poverty: " << std::setprecision(2) << allComboDemogData.at(p_shoot[i]->getState())->getpopPovertyPer() << endl;
+  }
+  for(int i = 3; i < 10; i++)
+  {
+    cout << p_shoot[i]->getState() << endl;
+  }
+}
 
     //sort and report the top ten states with largest population below poverty 
 void dataAQ::reportTopTenStatesBP() {
 //fill in
+  std::vector< shared_ptr<demogCombo> > poverty;
+    // add data from hashmap to a vector (poverty)
+    for (auto entry : allComboDemogData)
+    {
+      poverty.push_back(entry.second);
+    }
+
+    sort(poverty.begin(), poverty.end(), comparePoverty);
+    cout.setf(ios::fixed); // set precision to 2 decimal points
+    cout.setf(ios::showpoint);
+    for (int i = 0; i < 3; i++)
+    {
+      cout << poverty[i]->getState() << endl;
+      cout << "Total population: " << poverty[i]->getPop() << endl;
+      cout << "Percent below poverty: " << std::setprecision(2) << poverty[i]->getpopPovertyPer() << endl;
+      cout << "Police shooting incidents: " << allComboPoliceData[poverty[i]->getState()]->getNumberOfCases() << endl;
+    }
+    for(int i = 3; i < 10; i++)
+    {
+      cout << poverty[i]->getState() << endl;
+    }
 
 }
 

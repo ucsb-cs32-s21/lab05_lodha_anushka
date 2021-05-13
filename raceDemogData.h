@@ -35,15 +35,15 @@ class raceDemogData {
       int getOtherCount() const { return otherCount; }
       int getCommunityCount() const { return communityCount; }
 
-      void addFirstNationCount(int inNum)  { FirstNationCount += inNum; communityCount += inNum;   }
-      void addAsianCount(int inNum)    { AsianCount+= inNum; communityCount += inNum; }
-      void addBlackCount(int inNum)    { BlackCount+= inNum; communityCount += inNum;}
-      void addLatinxCount(int inNum)   { LatinxCount+= inNum; communityCount += inNum;}
-      void addHIPacificIsleCount(int inNum)    { HIPacificIsleCount+= inNum; communityCount += inNum;}
-      void addMultiRaceCount(int inNum)     { MultiRaceCount+= inNum; communityCount += inNum;}
-      void addWhiteCount(int inNum)    { WhiteCount+= inNum; communityCount += inNum;}
-      void addWhiteNHCount(int inNum)    { WhiteNHCount+= inNum; communityCount += inNum;}
-      void addOtherCount(int inNum)    { otherCount+= inNum; communityCount += inNum;}
+      void addFirstNationCount(int inNum)  { FirstNationCount += inNum;   }
+      void addAsianCount(int inNum)    { AsianCount+= inNum; }
+      void addBlackCount(int inNum)    { BlackCount+= inNum; }
+      void addLatinxCount(int inNum)   { LatinxCount+= inNum; }
+      void addHIPacificIsleCount(int inNum)    { HIPacificIsleCount+= inNum; }
+      void addMultiRaceCount(int inNum)     { MultiRaceCount+= inNum; }
+      void addWhiteCount(int inNum)    { WhiteCount+= inNum; }
+      void addWhiteNHCount(int inNum)    { WhiteNHCount+= inNum; }
+      void addOtherCount(int inNum)    { otherCount+= inNum; }
       void addCommunityCount(int inNum)   { communityCount+= inNum; }
 
       raceDemogData& operator+=(const raceDemogData rd) {

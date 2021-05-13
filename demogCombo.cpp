@@ -11,7 +11,7 @@
 std::ostream& operator<<(std::ostream &out, const demogCombo& ComboD) {
     out.setf(ios::fixed); // set precision to 2 decimal points
     out.setf(ios::showpoint);
-    //out << "State Info: " << SD.Sstate << endl;
+    out << "State Info: " << ComboD.getState() << endl;
     out << "Number of Counties: " << ComboD.getNumOfReg();
     //out << " total population: " << SD.getPop();
     //consider re-writing with getters....

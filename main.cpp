@@ -36,8 +36,14 @@ int main() {
     */
    
     theAnswers.createComboDemogData((std::vector<shared_ptr<demogData> >&)theDemogData);
-    //theAnswers.createComboPoliceData((std::vector<shared_ptr<psData> >&)thePoliceData);
-    cout << theAnswers << endl;
+    theAnswers.createComboPoliceData((std::vector<shared_ptr<psData> >&)thePoliceData);
+    //cout << theAnswers << endl;
+    std::cout << *(theAnswers.getComboPoliceData("MS")) << endl << endl;
+    std::cout << *(theAnswers.getComboDemogData("MS")) << endl;
+    std::cout << "Top ten states sorted on Below Poverty data & the associated police shooting data:" << endl;
+    theAnswers.reportTopTenStatesBP();
+    std:: cout << endl;
+    theAnswers.reportTopTenStatesPS();
 
 
     /*
