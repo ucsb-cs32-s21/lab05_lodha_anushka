@@ -15,8 +15,6 @@ public:
     psCombo(string inS, string inCounty, int NMI, int FC, int C65, int C18, raceDemogData RD, int inMale, int inFemale,
         int numcase) : regionData{inCounty, inS}, state(inS), Rment_ill(NMI), Rflee(FC), R65(C65), R18(C18), raceData(RD), Rmale(inMale),
         Rfemale(inFemale), RcaseNum(numcase) {}
-    
-    // aggregated police shooting data --> how many shootings per state
 
     // getter functions
     int getNumMentalI() { return Rment_ill; }
@@ -26,8 +24,7 @@ public:
     raceDemogData getRacialData() const { return raceData; }
     int getnumMales() { return Rmale; }
     int getnumFemales() { return Rfemale; }
-    int getNumberOfCases() { return RcaseNum; } //take out? same number as population?
-    //string getState() const {return state; }
+    int getNumberOfCases() { return RcaseNum; }
 
     // setter functions used for hashmap in DataAQ.cpp
     void setMI(int num)
@@ -65,11 +62,10 @@ public:
 
     friend std::ostream& operator<<(std::ostream &out, const psCombo& PD);
     void toString(ostream& os) const{
-     os << *this;
+      os << *this;
     }
 
 protected:
-    //fill in
     const string state;
     int Rment_ill;
     int Rflee;

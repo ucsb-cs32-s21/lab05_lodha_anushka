@@ -1,3 +1,5 @@
+// Anushka Lodha
+// CS32 S21
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -27,7 +29,6 @@ int main() {
             "police_shootings_cleaned.csv", POLICE);
 
      //debug print out
-
     /*
     for (const auto &obj : thePoliceData) {
         //std::cout << *obj << std::endl;
@@ -38,6 +39,7 @@ int main() {
     theAnswers.createComboDemogData((std::vector<shared_ptr<demogData> >&)theDemogData);
     theAnswers.createComboPoliceData((std::vector<shared_ptr<psData> >&)thePoliceData);
     //cout << theAnswers << endl;
+
     std::cout << *(theAnswers.getComboPoliceData("MS")) << endl << endl;
     std::cout << *(theAnswers.getComboDemogData("MS")) << endl;
     std::cout << "Top ten states sorted on Below Poverty data & the associated police shooting data:" << endl;

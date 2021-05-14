@@ -17,13 +17,10 @@ has aggregated state and county counts
 */
 class demogCombo : public demogData {
   public:
-        //write demogCombo constructor
-        // FIX THIS CONSTRUCTOR
         demogCombo(string inN, string inS, int in65, int in18, 
             int in5, int inUG, int inHS, int inPov, raceDemogData r, int totPop14, int numR) : 
             demogData{inN, inS, in65, in18, in5, inUG, inHS, inPov, r, totPop14}, numOfReg(numR) {}
 
-//fill in
   friend std::ostream& operator<<(std::ostream &out, const demogCombo &SD);
   int getNumOfReg() const { return numOfReg; }
 
@@ -64,14 +61,11 @@ class demogCombo : public demogData {
     racePop += r;
   }
 
-  // aggregating function
-
   void toString(ostream& os) const{
     os << *this;
   }
 
 private:
-    //fill in
     int numOfReg;
 };
 #endif

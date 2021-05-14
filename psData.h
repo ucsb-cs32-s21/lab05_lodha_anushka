@@ -19,8 +19,7 @@ class psData : public regionData {
     string inCounty, string inMI, string inFlee) : regionData{inCounty, inState}, name(inName), age(inAge), gender(inGender),
     race(inRace), county(inCounty), mental_illness(inMI), flee(inFlee) {}
 
-    //string getState() const { return state; }
-    //add getters
+    // getter functions
     string getPName() { return name; }
     int getAge() { return age; }
     string getGender() { return gender; }
@@ -36,7 +35,6 @@ class psData : public regionData {
 
 private:
     const string state;
-    //add others
     string name;
     int age;
     string gender;
