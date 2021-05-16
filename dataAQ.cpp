@@ -63,8 +63,8 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
     {
       /* if the key is present in the hashmap, just add the new data from element to the current data 
       from hashmap for each population type */
-
-      //allComboDemogData[name]->set65(allComboDemogData[name]->getpopOver65() + element->getpopOver65());
+      
+      allComboDemogData[name]->set65(allComboDemogData[name]->getpopOver65() + element->getpopOver65());
       allComboDemogData[name]->set18(allComboDemogData[name]->getpopUnder18() + element->getpopUnder18());
       allComboDemogData[name]->set5(allComboDemogData[name]->getpopUnder5() + element->getpopUnder5());
       allComboDemogData[name]->setHS(allComboDemogData[name]->getHSup() + element->getHSup());
@@ -77,7 +77,7 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
     else // if state not already in hashmap, create new object with demogCombo constructor
     {
       // if state does not already exist in hashmap: 
-      auto Combo = make_shared<demogCombo>(element->getRegionName(), name, element->getpopOver65(), element->getpopUnder18(),
+      auto Combo = make_shared<demogCombo>(element->getRegionName(), element->getState(), element->getpopOver65(), element->getpopUnder18(),
       element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
 
       allComboDemogData[name] = Combo;
