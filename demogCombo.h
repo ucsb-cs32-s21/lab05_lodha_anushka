@@ -22,6 +22,7 @@ class demogCombo : public demogData {
             demogData{inN, inS, in65, in18, in5, inUG, inHS, inPov, r, totPop14}, numOfReg(numR) {}
 
   friend std::ostream& operator<<(std::ostream &out, const demogCombo &SD);
+  
   int getNumOfReg() const { return numOfReg; }
 
   // setters

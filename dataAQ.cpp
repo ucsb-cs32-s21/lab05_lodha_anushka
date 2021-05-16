@@ -13,17 +13,16 @@ string makeKeyExample(shared_ptr<demogData> theData) {
 
   string theKey = "Key";
 
-/*
-  if (theData->getBelowPoverty() < 10) {
+  if (theData->getpopPovertyPer() < 10) {
     theKey += "BelowPovLessTenPer";
-  } else if (theData->getBelowPoverty() < 20) {
+  } else if (theData->getpopPovertyPer() < 20) {
     theKey += "BelowPovLessTwentyPer";
-  } else if (theData->getBelowPoverty() < 30) {
+  } else if (theData->getpopPovertyPer() < 30) {
     theKey += "BelowPovLessThirtyPer";
   } else {
     theKey += "BelowPovAboveThirtyPer";
   }
-*/
+
   return theKey;
 }
 
@@ -51,6 +50,40 @@ string makeKeyExample(shared_ptr<psData> theData) {
 void dataAQ::createComboDemogDataKey(std::vector<shared_ptr<demogData> >& theData) {
 
 //fill in
+
+raceDemogData race = raceDemogData(); // initialize race fields to 0
+
+  for(auto element : theData) // loop through all counties in theData
+  {
+    string name = makeKeyExample(element); // create a variable to hold the current region (state) name for the element
+
+    race = element->getRace();
+    
+    if(allComboDemogData.count(name) > 0) // check dataState hashmap to see if the state already exists in hashmap
+    {
+      /* if the key is present in the hashmap, just add the new data from element to the current data 
+      from hashmap for each population type */
+
+      //allComboDemogData[name]->set65(allComboDemogData[name]->getpopOver65() + element->getpopOver65());
+      allComboDemogData[name]->set18(allComboDemogData[name]->getpopUnder18() + element->getpopUnder18());
+      allComboDemogData[name]->set5(allComboDemogData[name]->getpopUnder5() + element->getpopUnder5());
+      allComboDemogData[name]->setHS(allComboDemogData[name]->getHSup() + element->getHSup());
+      allComboDemogData[name]->setBA(allComboDemogData[name]->getBAup() + element->getBAup());
+      allComboDemogData[name]->setPoverty(allComboDemogData[name]->getpopPoverty() + element->getpopPoverty());
+      allComboDemogData[name]->setPop(allComboDemogData[name]->getPop() + element->getPop());
+      allComboDemogData[name]->setCounties(allComboDemogData[name]->getNumOfReg() + 1);
+      allComboDemogData[name]->setRace(race);
+    }
+    else // if state not already in hashmap, create new object with demogCombo constructor
+    {
+      // if state does not already exist in hashmap: 
+      auto Combo = make_shared<demogCombo>(element->getRegionName(), name, element->getpopOver65(), element->getpopUnder18(),
+      element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
+
+      allComboDemogData[name] = Combo;
+    }
+    race = raceDemogData(); // reset race fields
+  }
 
 }
 
