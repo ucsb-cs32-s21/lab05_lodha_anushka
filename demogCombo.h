@@ -26,39 +26,34 @@ class demogCombo : public demogData {
   int getNumOfReg() const { return numOfReg; }
 
   // setters
+  void addRegion(shared_ptr<demogData> element){
+    addState(element->getState());
+  }
   void setCounties(int num) {
     numOfReg = num; // number of counties per the corresponding state
   }
-  void set65(int num)
-  {
+  void set65(int num){
     popOver65 = num;
   }
-  void set18(int num)
-  {
+  void set18(int num){
     popUnder18 = num;
   }
-  void set5(int num)
-  {
+  void set5(int num){
     popUnder5 = num;
   }
-  void setHS(int num)
-  {
+  void setHS(int num){
     popHighSchool = num;
   }
-  void setBA(int num)
-  {
+  void setBA(int num){
     popUndergrad = num;
   }
-  void setPoverty(int num)
-  {
+  void setPoverty(int num){
     popPoverty = num;
   }
-  void setPop(int num)
-  {
+  void setPop(int num){
     population = num;
   }
-  void setRace(raceDemogData r) // adds the fields from raceDemogData object passed in to racePop (raceDemogData private variable)
-  {
+  void setRace(raceDemogData r) { // adds the fields from raceDemogData object passed in to racePop (raceDemogData private variable)
     racePop += r;
   }
 

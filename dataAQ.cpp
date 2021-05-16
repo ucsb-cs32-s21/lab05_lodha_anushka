@@ -76,8 +76,7 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
       allComboDemogData[name]->setPop(allComboDemogData[name]->getPop() + element->getPop());
       allComboDemogData[name]->setCounties(allComboDemogData[name]->getNumOfReg() + 1);
       allComboDemogData[name]->setRace(race);
-      // if (element->getpopPovertyPer() >= 30)
-      //   cout << "STATE!:" << element->getState() << endl;
+      allComboDemogData[name]->addRegion(element);
     }
     else // if state not already in hashmap, create new object with demogCombo constructor
     {
@@ -85,7 +84,7 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
       auto Combo = make_shared<demogCombo>(element->getRegionName(), element->getState(), element->getpopOver65(), element->getpopUnder18(),
       element->getpopUnder5(), element->getBAup(), element->getHSup(), element->getpopPoverty(), race, element->getPop(), 1);
 
-      allComboDemogData[name] = Combo;
+      allComboDemogData[name] = Combo;      
     }
     race = raceDemogData(); // reset race fields
   }
@@ -176,6 +175,7 @@ void dataAQ::createComboPoliceDataKey(std::vector<shared_ptr<psData> >& theData)
     {
       // the key is the state name and the "value" is the entire set of population data (psCombo object)
       allComboPoliceData[name] = make_shared<psCombo>(element->getState(), "County", mental_illness, flee, age65, age18, race, male, female, 1);
+      //element->addState(element->getState());
     }
   }
 }
