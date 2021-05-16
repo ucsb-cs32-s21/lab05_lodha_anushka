@@ -1,0 +1,25 @@
+Combo Info: AL
+Number of Counties: 117
+Population info: 
+(over 65): 12.31% and total: 508433
+(under 18): 27.12% and total: 1120039
+(under 5): 7.73% and total: 319328
+Education info: 
+(Bachelor degree or more): 17.60% and total: 726966
+(high school or more): 71.44% and total: 2950441
+persons below poverty: 33.95% and total: 1402079
+Total population: 4129981
+Race stuff: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 7.53 count: 310853
+% Asian American percent: 1.15 count: 47616
+% Black/African American percent: 18.45 count: 762185
+% Hispanic or Latinx percent: 40.51 count: 1673061
+% Native Hawaiian and Other Pacific Islander percent: 0.06 count: 2478
+% Two or More Races percent: 1.13 count: 46782
+% White (inclusive) percent: 71.66 count: 2959567
+% White (nonHispanic) percent: 32.41 count: 1338625
+total Racial Demographic Count: 4129981
+Top ten states sorted on Below Poverty data & the associated police shooting data:
+AL
+Total population: 4129981
+Percent below poverty: 33.95
