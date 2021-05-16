@@ -11,7 +11,7 @@ dataAQ::dataAQ() {}
 string makeKeyExample(shared_ptr<demogData> theData) {
 
 
-  string theKey = "";
+  string theKey = "Key";
 
   if (theData->getpopPovertyPer() < 10) {
     theKey += "BelowPovLessTenPer";
@@ -28,7 +28,7 @@ string makeKeyExample(shared_ptr<demogData> theData) {
 
 string makeKeyExample(shared_ptr<psData> theData) {
 
-  string theKey = "";
+  string theKey = "Key";
 
   if (theData->getRace() == "W") {
     theKey += "WhiteVictim";
@@ -170,6 +170,7 @@ void dataAQ::createComboPoliceDataKey(std::vector<shared_ptr<psData> >& theData)
       allComboPoliceData[name]->setCase(allComboPoliceData[name]->getNumberOfCases() + 1);
       allComboPoliceData[name]->setRace(race);
       race = raceDemogData();
+      allComboPoliceData[name]->addRegion(element);
     }
     else // if state not already in hashmap, create new object with psCombo constructor
     {

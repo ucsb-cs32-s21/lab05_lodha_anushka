@@ -15,6 +15,7 @@ std::ostream& operator<<(std::ostream &out, const demogCombo& ComboD) {
     out.setf(ios::showpoint);
     out << "Combo Info: " << ComboD.printState() << endl;
     out << "Number of Counties: " << ComboD.getNumOfReg();
+    out << " County Demographics Info: comboData, " << ComboD.getState();
     out << "\nPopulation info: \n(over 65): " << std::setprecision(2) << ComboD.getpopOver65Per() << "%";
     out <<  " and total: " << ComboD.getpopOver65();
     out << "\n(under 18): " << std::setprecision(2) << ComboD.getpopUnder18Per() << "%";

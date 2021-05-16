@@ -17,6 +17,7 @@ public:
         Rfemale(inFemale), RcaseNum(numcase) {}
 
     // getter functions
+    // counts
     int getNumMentalI() { return Rment_ill; }
     int getFleeingCount() { return Rflee; }
     int getCasesOver65() {return R65; }
@@ -26,7 +27,16 @@ public:
     int getnumFemales() { return Rfemale; }
     int getNumberOfCases() { return RcaseNum; }
 
+    // percentages
+    double getNumMentalIPer() const { return double(Rment_ill * 100.0)/ RcaseNum; }
+    double getFleeingPer() const { return double(Rflee * 100.0) / RcaseNum; }
+    double getCasesOver65Per() const { return double(R65 * 100.0) / RcaseNum; }
+    double getCasesUnder18Per() const { return double(R18 * 100.0) / RcaseNum; }
+
     // setter functions used for hashmap in DataAQ.cpp
+    void addRegion(shared_ptr<psData> element){
+      addState(element->getState());
+    }
     void setMI(int num)
     {
       Rment_ill = num; // number of counties per the corresponding state
@@ -59,6 +69,7 @@ public:
     {
       raceData += R;
     }
+    
 
     friend std::ostream& operator<<(std::ostream &out, const psCombo& PD);
     void toString(ostream& os) const{

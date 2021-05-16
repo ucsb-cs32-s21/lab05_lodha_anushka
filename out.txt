@@ -1,5 +1,6 @@
-Combo Info: AL
-Number of Counties: 117
+Combo Demographic Info: key: KeyBelowPovAboveThirtyPer
+Combo Info: AK, AL, AR, AZ, GA, ID, IL, KY, LA, MI, MS, MT, NC, ND, NM, OH, SC, SD, TN, TX, VA, WA, WI, WV, total states: 24
+Number of Counties: 117 County Demographics Info: comboData, many
 Population info: 
 (over 65): 12.31% and total: 508433
 (under 18): 27.12% and total: 1120039
@@ -19,7 +20,214 @@ Race stuff: Racial Demographics Info:
 % White (inclusive) percent: 71.66 count: 2959567
 % White (nonHispanic) percent: 32.41 count: 1338625
 total Racial Demographic Count: 4129981
-Top ten states sorted on Below Poverty data & the associated police shooting data:
-AL
-Total population: 4129981
-Percent below poverty: 33.95
+key: KeyBelowPovLessTenPer
+Combo Info: AK, AL, AR, CA, CO, CT, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SD, TN, TX, UT, VA, VT, WA, WI, WY, total states: 46
+Number of Counties: 431 County Demographics Info: comboData, many
+Population info: 
+(over 65): 14.17% and total: 7291928
+(under 18): 23.39% and total: 12041262
+(under 5): 5.87% and total: 3019994
+Education info: 
+(Bachelor degree or more): 38.30% and total: 19714949
+(high school or more): 91.51% and total: 47106146
+persons below poverty: 7.55% and total: 3885127
+Total population: 51476603
+Race stuff: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 0.69 count: 353361
+% Asian American percent: 7.28 count: 3746319
+% Black/African American percent: 8.98 count: 4621551
+% Hispanic or Latinx percent: 10.58 count: 5443920
+% Native Hawaiian and Other Pacific Islander percent: 0.32 count: 163485
+% Two or More Races percent: 2.63 count: 1355686
+% White (inclusive) percent: 80.12 count: 41241222
+% White (nonHispanic) percent: 71.08 count: 36587127
+total Racial Demographic Count: 51476603
+key: KeyBelowPovLessThirtyPer
+Combo Info: AK, AL, AR, AZ, CA, CO, FL, GA, IA, ID, IL, IN, KS, KY, LA, MA, MD, MI, MN, MO, MS, MT, NC, NE, NM, NV, NY, OH, OK, OR, PA, SC, SD, TN, TX, UT, VA, WA, WI, WV, WY, total states: 41
+Number of Counties: 712 County Demographics Info: comboData, many
+Population info: 
+(over 65): 14.05% and total: 5863618
+(under 18): 23.60% and total: 9847784
+(under 5): 6.70% and total: 2794113
+Education info: 
+(Bachelor degree or more): 21.49% and total: 8968374
+(high school or more): 80.12% and total: 33438608
+persons below poverty: 23.50% and total: 9807143
+Total population: 41733306
+Race stuff: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 1.92 count: 800846
+% Asian American percent: 3.37 count: 1405043
+% Black/African American percent: 23.48 count: 9800180
+% Hispanic or Latinx percent: 18.25 count: 7616657
+% Native Hawaiian and Other Pacific Islander percent: 0.15 count: 62505
+% Two or More Races percent: 2.21 count: 922305
+% White (inclusive) percent: 68.88 count: 28743901
+% White (nonHispanic) percent: 53.36 count: 22269198
+total Racial Demographic Count: 41733306
+key: KeyBelowPovLessTwentyPer
+Combo Info: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY, total states: 51
+Number of Counties: 1883 County Demographics Info: comboData, many
+Population info: 
+(over 65): 14.70% and total: 32573092
+(under 18): 22.83% and total: 50579195
+(under 5): 6.21% and total: 13747316
+Education info: 
+(Bachelor degree or more): 28.35% and total: 62805729
+(high school or more): 86.01% and total: 190530823
+persons below poverty: 15.30% and total: 33902140
+Total population: 221517166
+Race stuff: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 1.13 count: 2499054
+% Asian American percent: 5.48 count: 12147881
+% Black/African American percent: 12.18 count: 26979276
+% Hispanic or Latinx percent: 18.35 count: 40653181
+% Native Hawaiian and Other Pacific Islander percent: 0.23 count: 509835
+% Two or More Races percent: 2.56 count: 5666494
+% White (inclusive) percent: 78.42 count: 173716516
+% White (nonHispanic) percent: 62.15 count: 137672714
+total Racial Demographic Count: 221517166
+key: KeyAfricanAmericanVictim
+State Info: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NE, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, TN, TX, UT, VA, WA, WI, WV, total states: 45
+Number of incidents: 1497
+Incidents with age 
+(over 65): 21 %: 1.40
+(19 to 64): 1360 %: 90.85
+(under 18): 116 %: 7.75
+Incidents involving fleeing: 594 %: 39.68
+Incidents involving mental illness: 233 %: 15.56
+Male incidents: 1447 female incidents: 50
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native count: 0
+% Asian American count: 0
+% Black/African American percent: 99.93 count: 1497
+% Hispanic or Latinx count: 0
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) count: 0
+% White (nonHispanic) count: 0
+% Other percent: 0.07 count: 1
+total Racial Demographic Count: 1498
+key: KeyAsianVictim
+State Info: AK, AR, CA, CO, FL, GA, HI, ID, KY, LA, MD, MI, MN, MO, MS, NC, NJ, NV, NY, OH, OK, PA, SC, SD, TN, TX, UT, VA, WA, WI, WV, total states: 31
+Number of incidents: 104
+Incidents with age 
+(over 65): 0 %: 0.00
+(19 to 64): 93 %: 89.42
+(under 18): 11 %: 10.58
+Incidents involving fleeing: 21 %: 20.19
+Incidents involving mental illness: 26 %: 25.00
+Male incidents: 100 female incidents: 4
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native count: 0
+% Asian American percent: 100.00 count: 104
+% Black/African American count: 0
+% Hispanic or Latinx count: 0
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) count: 0
+% White (nonHispanic) count: 0
+total Racial Demographic Count: 104
+key: KeyHispanicVictim
+State Info: AL, AZ, CA, CO, CT, DE, FL, GA, HI, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, NC, NE, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, TN, TX, UT, VA, WA, WI, WY, total states: 41
+Number of incidents: 1052
+Incidents with age 
+(over 65): 13 %: 1.24
+(19 to 64): 959 %: 91.16
+(under 18): 80 %: 7.60
+Incidents involving fleeing: 370 %: 35.17
+Incidents involving mental illness: 185 %: 17.59
+Male incidents: 1021 female incidents: 31
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native count: 0
+% Asian American percent: 0.09 count: 1
+% Black/African American count: 0
+% Hispanic or Latinx percent: 99.72 count: 1052
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) percent: 0.09 count: 1
+% White (nonHispanic) percent: 0.09 count: 1
+% Other percent: 0.09 count: 1
+total Racial Demographic Count: 1055
+key: KeyNativeAmericanVictim
+State Info: AK, AZ, CA, CO, ID, KS, KY, MN, MT, ND, NE, NM, NV, OK, SD, TX, UT, VA, VT, WA, WI, WY, total states: 22
+Number of incidents: 87
+Incidents with age 
+(over 65): 0 %: 0.00
+(19 to 64): 84 %: 96.55
+(under 18): 3 %: 3.45
+Incidents involving fleeing: 28 %: 32.18
+Incidents involving mental illness: 15 %: 17.24
+Male incidents: 82 female incidents: 5
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 100.00 count: 87
+% Asian American count: 0
+% Black/African American count: 0
+% Hispanic or Latinx count: 0
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) count: 0
+% White (nonHispanic) count: 0
+total Racial Demographic Count: 87
+key: KeyOtherRaceVictim
+State Info: CA, CO, FL, HI, MA, ME, MI, MN, OH, TN, TX, UT, VA, WA, total states: 14
+Number of incidents: 47
+Incidents with age 
+(over 65): 0 %: 0.00
+(19 to 64): 43 %: 91.49
+(under 18): 4 %: 8.51
+Incidents involving fleeing: 17 %: 36.17
+Incidents involving mental illness: 10 %: 21.28
+Male incidents: 44 female incidents: 3
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native count: 0
+% Asian American count: 0
+% Black/African American count: 0
+% Hispanic or Latinx count: 0
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) count: 0
+% White (nonHispanic) count: 0
+% Other percent: 100.00 count: 47
+total Racial Demographic Count: 47
+key: KeyRaceUnspecifiedVictim
+State Info: AK, AL, AR, AZ, CA, CO, CT, DE, FL, GA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, NH, NJ, NM, NV, NY, OH, OK, OR, PA, SC, SD, TN, TX, UT, VA, WA, WI, WV, WY, total states: 44
+Number of incidents: 543
+Incidents with age 
+(over 65): 35 %: 6.45
+(19 to 64): 334 %: 61.51
+(under 18): 174 %: 32.04
+Incidents involving fleeing: 172 %: 31.68
+Incidents involving mental illness: 116 %: 21.36
+Male incidents: 530 female incidents: 13
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native count: 0
+% Asian American count: 0
+% Black/African American count: 0
+% Hispanic or Latinx count: 0
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) count: 0
+% White (nonHispanic) count: 0
+% Other percent: 100.00 count: 543
+total Racial Demographic Count: 543
+key: KeyWhiteVictim
+State Info: AK, AL, AR, AZ, CA, CO, CT, DC, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY, total states: 51
+Number of incidents: 2884
+Incidents with age 
+(over 65): 120 %: 4.16
+(19 to 64): 2659 %: 92.20
+(under 18): 105 %: 3.64
+Incidents involving fleeing: 844 %: 29.26
+Incidents involving mental illness: 846 %: 29.33
+Male incidents: 2713 female incidents: 170
+Racial demographics of state incidents: Racial Demographics Info: 
+% American Indian and Alaska Native percent: 0.03 count: 1
+% Asian American percent: 0.07 count: 2
+% Black/African American percent: 0.03 count: 1
+% Hispanic or Latinx percent: 0.03 count: 1
+% Native Hawaiian and Other Pacific Islander count: 0
+% Two or More Races count: 0
+% White (inclusive) percent: 99.83 count: 2885
+% White (nonHispanic) percent: 99.83 count: 2885
+total Racial Demographic Count: 2890
+

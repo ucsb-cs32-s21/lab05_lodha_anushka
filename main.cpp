@@ -40,8 +40,8 @@ int main() {
     theAnswers.createComboPoliceDataKey((std::vector<shared_ptr<psData> >&)thePoliceData);
     cout << theAnswers << endl;
 
-    //std::cout << *(theAnswers.getComboPoliceData("AsianVictim")) << endl << endl;
-    //std::cout << *(theAnswers.getComboDemogData("BelowPovAboveThirtyPer")) << endl;
+    // std::cout << *(theAnswers.getComboPoliceData("KeyAsianVictim")) << endl << endl;
+    // std::cout << *(theAnswers.getComboDemogData("KeyBelowPovAboveThirtyPer")) << endl;
     
 //     std::cout << "Top ten states sorted on Below Poverty data & the associated police shooting data:" << endl;
 //     theAnswers.reportTopTenStatesBP();
