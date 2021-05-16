@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream &out, const demogCombo& ComboD) {
     out <<  " and total: " << ComboD.getpopUnder18();
     out << "\n(under 5): " << std::setprecision(2) << ComboD.getpopUnder5Per() << "%";
     out <<  " and total: " << ComboD.getpopUnder5();
-    out << "\nEducation info: " << "\n(Bachelor degree or more): " << std::setprecision(2) << ComboD.getBAupPer() << "%" << " and total: " << ComboD.getBAup() 
+    out << "\nEducation info: " << "\n(Bachelor or more): " << std::setprecision(2) << ComboD.getBAupPer() << "%" << " and total: " << ComboD.getBAup() 
         << "\n(high school or more): "
         << std::setprecision(2) << ComboD.getHSupPer() << "%" << " and total: " << ComboD.getHSup() << endl;
     out << "persons below poverty: " << std::setprecision(2) << ComboD.getpopPovertyPer() << "%" << " and total: " << ComboD.getpopPoverty() << endl;
