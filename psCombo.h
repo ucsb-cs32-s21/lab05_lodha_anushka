@@ -37,36 +37,28 @@ public:
     void addRegion(shared_ptr<psData> element){
       addState(element->getState());
     }
-    void setMI(int num)
-    {
+    void setMI(int num) {
       Rment_ill = num; // number of counties per the corresponding state
     }
-    void set65(int num)
-    {
+    void set65(int num) {
       R65 = num;
     }
-    void set18(int num)
-    {
+    void set18(int num) {
       R18 = num;
     }
-    void setFC(int num)
-    {
+    void setFC(int num) {
       Rflee = num;
     }
-    void setMale(int num)
-    {
+    void setMale(int num) {
       Rmale = num;
     }
-    void setFemale(int num)
-    {
+    void setFemale(int num) {
       Rfemale = num;
     }
-    void setCase(int num)
-    {
+    void setCase(int num) {
         RcaseNum = num;
     }
-    void setRace(raceDemogData R) // adds the fields from raceDemogData object passed in to raceData (raceDemogData private variable)
-    {
+    void setRace(raceDemogData R) {// adds the fields from raceDemogData object passed in to raceData (raceDemogData private variable)
       raceData += R;
     }
     

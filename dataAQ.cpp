@@ -58,11 +58,11 @@ raceDemogData race = raceDemogData(); // initialize race fields to 0
 
   for(auto element : theData) // loop through all counties in theData
   {
-    string name = makeKeyExample(element); // create a variable to hold the current region (state) name for the element
+    string name = makeKeyExample(element); // create a variable to hold the key name
 
     race = element->getRace();
     
-    if(allComboDemogData.count(name) > 0) // check dataState hashmap to see if the state already exists in hashmap
+    if(allComboDemogData.count(name) > 0) // check hashmap to see if the key already exists in hashmap
     {
       /* if the key is present in the hashmap, just add the new data from element to the current data 
       from hashmap for each population type */
@@ -156,7 +156,7 @@ void dataAQ::createComboPoliceDataKey(std::vector<shared_ptr<psData> >& theData)
     }
 
     string name = makeKeyExample(element); // variable to hold state name of current individual
-    if(allComboPoliceData.count(name) > 0) // check allComboPoliceData hashmap to see if individual's state already exists in hashmap
+    if(allComboPoliceData.count(name) > 0) // check allComboPoliceData hashmap to see if individual's [key] already exists in hashmap
     {
       // if the key is present in the hashmap, just add the data of current individual to the current data 
       // from allComboPoliceData for each population type
@@ -176,7 +176,6 @@ void dataAQ::createComboPoliceDataKey(std::vector<shared_ptr<psData> >& theData)
     {
       // the key is the state name and the "value" is the entire set of population data (psCombo object)
       allComboPoliceData[name] = make_shared<psCombo>(element->getState(), "County", mental_illness, flee, age65, age18, race, male, female, 1);
-      //element->addState(element->getState());
     }
   }
 }
