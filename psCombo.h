@@ -37,31 +37,21 @@ public:
     void addRegion(shared_ptr<psData> element){
       addState(element->getState());
     }
-    void setMI(int num) {
-      Rment_ill = num; // number of counties per the corresponding state
-    }
-    void set65(int num) {
-      R65 = num;
-    }
-    void set18(int num) {
-      R18 = num;
-    }
-    void setFC(int num) {
-      Rflee = num;
-    }
-    void setMale(int num) {
-      Rmale = num;
-    }
-    void setFemale(int num) {
-      Rfemale = num;
-    }
-    void setCase(int num) {
-        RcaseNum = num;
-    }
+
     void setRace(raceDemogData R) {// adds the fields from raceDemogData object passed in to raceData (raceDemogData private variable)
       raceData += R;
     }
     
+    void setPSData(shared_ptr<psData> element, int male, int female, int mental_illness, int flee, int age65, int age18) {
+      R65 += age65;
+      R18 += age18;
+      Rment_ill += mental_illness;
+      Rflee += flee;
+      Rmale += male;
+      Rfemale += female;
+      RcaseNum += 1;
+      //raceData += element->getRace();
+    }
 
     friend std::ostream& operator<<(std::ostream &out, const psCombo& PD);
     void toString(ostream& os) const{

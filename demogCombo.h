@@ -8,6 +8,8 @@
 #include "demogData.h"
 #include "raceDemogData.h"
 #include "regionData.h"
+#include <map>
+#include <vector>
 
 /*
   class to represent combined demographic data 
@@ -29,33 +31,19 @@ class demogCombo : public demogData {
   void addRegion(shared_ptr<demogData> element){
     addState(element->getState());
   }
-  void setCounties(int num) {
-    numOfReg = num; // number of counties per the corresponding state
+
+  void setData(shared_ptr<demogData> element) {
+    popOver65 += element->getpopOver65();
+    popUnder18 += element->getpopUnder18();
+    popUnder5 += element->getpopUnder5();
+    popUndergrad += element->getBAup();
+    popHighSchool += element->getHSup();
+    popPoverty += element->getpopPoverty();
+    population += element->getPop();
+    numOfReg += 1;
+    racePop += element->getRace();
   }
-  void set65(int num){
-    popOver65 = num;
-  }
-  void set18(int num){
-    popUnder18 = num;
-  }
-  void set5(int num){
-    popUnder5 = num;
-  }
-  void setHS(int num){
-    popHighSchool = num;
-  }
-  void setBA(int num){
-    popUndergrad = num;
-  }
-  void setPoverty(int num){
-    popPoverty = num;
-  }
-  void setPop(int num){
-    population = num;
-  }
-  void setRace(raceDemogData r) { // adds the fields from raceDemogData object passed in to racePop (raceDemogData private variable)
-    racePop += r;
-  }
+
 
   void toString(ostream& os) const{
     os << *this;
